@@ -107,15 +107,15 @@ act_tool_build() {
 # Apply patches
 #
 echo "Applying patch to Galois library..."
-if [ ! -f patched ]
-then
+# if [ ! -f patched ]
+# then
    (cd Galois;
      for i in ../extra/Galois*;
-     do patch -p0 < $i;
+     do patch -f -p0 < $i;
      done
    )
-   touch patched
-fi
+   # touch patched
+# fi
 
 #
 # Create directory to hold build logs
