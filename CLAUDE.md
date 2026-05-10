@@ -158,7 +158,7 @@ This is the user's local working clone. Conventions specific to it:
 - **Remotes (parent + every submodule)**: `origin` points at the user's `ElderDelp/<name>` fork on GitHub; `upstream` fetches from the canonical source (asyncvlsi for actflow and 21 submodules, IntelligentSoftwareSystems for Galois) but its **push URL is redirected to ElderDelp** as a safety net. All pushes — including from inside submodules — must land in ElderDelp; never push to asyncvlsi/Intel.
 - **`.gitmodules` is intentionally unchanged**: it still records canonical asyncvlsi/Intel URLs so a fresh clone bootstraps from upstream. The ElderDelp remote routing lives only in per-clone `.git/config` and is not committed. Do not try to "fix" `.gitmodules` to point at ElderDelp.
 - **Local `build` script modification** (committed as `c871fb3`): the `patched` sentinel guard is disabled and `patch -f` is passed to `patch`, so Galois patches are reattempted on every build. Already-applied hunks fail and produce `.rej` files in `Galois/` — these are **expected and harmless**, not a build failure. Do not try to clean them up as part of routine work.
-- **Untracked working-tree items** (`prs2fpga/`, `timing/`, `.act_history`, `CLAUDE.md`, etc.) are local user state. Don't add them to commits or remove them.
+- **Untracked working-tree items** (`prs2fpga/`, `timing/`, `.act_history`, etc.) are local user state. Don't add them to commits or remove them.
 
 ## Dependencies
 
